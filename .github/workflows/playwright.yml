@@ -17,7 +17,7 @@ jobs:
         run: |
           npm i -g pnpm
           pnpm i
-          pnpm ci
+          pnpm exec ci
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
       - name: Run Playwright tests
