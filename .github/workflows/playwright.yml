@@ -17,11 +17,11 @@ jobs:
         run: |
           npm i -g pnpm
           pnpm i
-          npm ci
+          pnpm ci
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: pnpm exec playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright test
+        run: pnpm exec playwright test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
