@@ -14,11 +14,14 @@ jobs:
         with:
           node-version: lts/*
       - name: Install dependencies
-        run: npm install -g pnpm && pnpm install
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
+        # Work around for no tests found on github actions https://github.com/microsoft/playwright/issues/32503
+        run: pnpm --filter <package> exec playwright install --with-deps
       - name: Run Playwright tests
-        run: pnpm exec playwright test
+        run: pnpm --filter <package> exec playwright test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
