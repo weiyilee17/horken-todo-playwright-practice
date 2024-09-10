@@ -75,7 +75,7 @@ test.describe('Login form', () => {
     const passwordField = page.getByLabel('Password');
 
     await emailField.fill('test@test.com');
-    await passwordField.fill('password');
+    await passwordField.fill('Password1!');
 
     const loginButton = page.getByRole('button', { name: 'Login' });
 
@@ -85,7 +85,7 @@ test.describe('Login form', () => {
     await page.screenshot({ path: `./api/screenshots/login-success-${new Date().toISOString()}.png`, fullPage: true });
 
     await emailField.fill('test@gmail.com');
-    await passwordField.fill('password666');
+    await passwordField.fill('Password66666!');
 
     await loginButton.click();
 
