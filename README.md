@@ -48,3 +48,5 @@ export default tseslint.config({
   },
 });
 ```
+
+## The github action yaml file on final branch is outdated. Please use the version on main instead
